@@ -37,34 +37,34 @@ if __name__ == "__main__":
         
                   for i in my_array:
                     if i[0] == "": break
-                      #try:
+                    try:
                           #Lista donde guardara las actuaciones del proceso
-                    actuaciones = []
-                    #Lista donde guardara el proceso que arrojo error
-                    errores = {"cliente":"","radicado":""}
-                    #Diccionario para guardar los datos del proceso
-                    datos = {"cliente":"","radicado":"","fecha": "","despacho":"","ponente":"","tipo_proceso":"","clase_proceso":"","recurso":"","ubicacion":"","contenido":"","sujetos_procesales":""}
-                    #Damos click en boton "TODOS LOS PROCESOS"
-                    consulta.iniciar_busqueda((browser.driver))
-                    #Se ingresa el radicado a consultar
-                    consulta.ingresar_radicado((browser.driver),i[1])
-                    #Se selecciona el proceso a consultar
-                    consulta.click_Proceso((browser.driver),datos)
-                    #Se extrae los datos del proceso
-                    extractor.extraer_datos(datos,(browser.driver),i)
-                    #Se extrae las partes interesadas en el proceso
-                    extractor.extraer_partes(datos,(browser.driver))
-                    #Se extrae las actuaciones del proceso
-                    extractor.extraer_actuaciones(actuaciones,(browser.driver),i[1],inicioBusqueda)
-                    #Se imprime en pantalla los datos
-                    print(f"Radicado: {i[1]}")
-                    #Se ingresa la informacion al excel
-                    excel.escribir_xls(datos=datos,actuaciones=actuaciones,i=i)
-                    """  except:
+                            actuaciones = []
+                            #Lista donde guardara el proceso que arrojo error
+                            errores = {"cliente":"","radicado":""}
+                            #Diccionario para guardar los datos del proceso
+                            datos = {"cliente":"","radicado":"","fecha": "","despacho":"","ponente":"","tipo_proceso":"","clase_proceso":"","recurso":"","ubicacion":"","contenido":"","sujetos_procesales":""}
+                            #Damos click en boton "TODOS LOS PROCESOS"
+                            consulta.iniciar_busqueda((browser.driver))
+                            #Se ingresa el radicado a consultar
+                            consulta.ingresar_radicado((browser.driver),i[1])
+                            #Se selecciona el proceso a consultar
+                            consulta.click_Proceso((browser.driver),datos)
+                            #Se extrae los datos del proceso
+                            extractor.extraer_datos(datos,(browser.driver),i)
+                            #Se extrae las partes interesadas en el proceso
+                            extractor.extraer_partes(datos,(browser.driver))
+                            #Se extrae las actuaciones del proceso
+                            extractor.extraer_actuaciones(actuaciones,(browser.driver),i[1],inicioBusqueda)
+                            #Se imprime en pantalla los datos
+                            print(f"Radicado: {i[1]}")
+                            #Se ingresa la informacion al excel
+                            excel.escribir_xls(datos=datos,actuaciones=actuaciones,i=i)
+                    except:
                           print("\n","*"*20,"\n","-ERROR-"*10,"\n","*"*20,"\n")
                           errores["cliente"] = i[0]
                           errores["radicado"] = i[1]
-                          excel.escribir_xls(errores=errores)"""
+                          excel.escribir_xls(errores=errores)
                   excel.terminar(file)
                   print("\n","*"*20,"\n","Finalizó ",file,"\n","*"*20,"\n")
         #Se Termina el programa 
