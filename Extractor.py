@@ -68,8 +68,8 @@ class Extractor_1(object):
                 allcols = tr.find_elements(By.TAG_NAME,"td")[:-1]
                 #Se obtiene la fecha
                 fecha_str=allcols[0].text
-                #Comparación para verificar si la actuacion es de los ultimos 4 dias
-                if Excel_1.dife_fecha(fecha_str).days <= 4:
+                #Comparación para verificar si la actuacion es de los ultimos 4 dias y que no esté privada
+                if fecha_str != "" and Excel_1.dife_fecha(fecha_str).days <= 4:
                     #Si la actuacion es de los ultimos 4 dias se recorre la lista
                     for j in range(len(allcols)):
                         #Se agrega las partes de la actuacion a la lista
