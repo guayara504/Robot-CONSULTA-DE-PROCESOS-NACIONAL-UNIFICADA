@@ -30,9 +30,9 @@ class Consultor_1():
     #Ingresar el radicado en la caja
     def ingresar_radicado(driver,radicado):
         #Pegar Radicado
-        driver.find_element(By.XPATH,'//*[@id="input-73"]').send_keys(Keys.CONTROL + "a")
-        driver.find_element(By.XPATH,'//*[@id="input-73"]').send_keys(Keys.DELETE)
-        driver.find_element(By.XPATH,'//*[@id="input-73"]').send_keys(radicado)
+        driver.find_element(By.XPATH,'//*[@id="input-72"]').send_keys(Keys.CONTROL + "a")
+        driver.find_element(By.XPATH,'//*[@id="input-72"]').send_keys(Keys.DELETE)
+        driver.find_element(By.XPATH,'//*[@id="input-72"]').send_keys(radicado)
         #Click en boton 'Consulta'
         driver.find_element(By.XPATH,'//*[@id="mainContent"]/div/div/div/div[1]/div/form/div[2]/button[1]/span').click()
 
