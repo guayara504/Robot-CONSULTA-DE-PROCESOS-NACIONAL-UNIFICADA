@@ -1,6 +1,7 @@
 from Consultor import *
 from Driver import *
 from Extractor import *
+from Ruta import *
 from Excel import Excel_1
 import sys
 import os
@@ -21,14 +22,19 @@ if __name__ == "__main__":
     consulta =Consultor_1
     extractor = Extractor_1
     excel = Excel_1()
+    carpetas = ruta()
     
+   
+    carpetas.crear_carpetas(dia=excel.dia, mes=excel.mes, ano=excel.ano)
+
     if (inicioBusqueda == "1") or (inicioBusqueda == "2"):
         
         #Hacer busqueda con todos los archivos ingresados
         for file in listFile:
                   #se crea la variable con el nombre del archivo y su extension
-                  excelFile= file+".xlsx"
-        
+                  #excelFile= f'.\\Clientes\\{file}.xls'
+                  PATH = "C:\\Users\\Study\\Documents\\Universidad\\Grade proyect\\Robot-CONSULTA-DE-PROCESOS-NACIONAL-UNIFICADA-main\\Robot-CONSULTA-DE-PROCESOS-NACIONAL-UNIFICADA-main"
+                  excelFile = os.path.join(PATH,"Clientes", f"{file}.xls")                    
                   print(f'\033[1;32m\nEjecutando: {file}\n')
         
                   # extraer los datos del archivo de entrada

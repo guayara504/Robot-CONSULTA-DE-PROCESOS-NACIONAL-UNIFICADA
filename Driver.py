@@ -29,7 +29,6 @@ class Driver_1(object):
 
     #Escoger preferencias del WebDriver
     def __init__(self):  
-        self.driver.set_window_size(1024, 768)
         self.load_page()
         
     #Cargar la pagina solicitada

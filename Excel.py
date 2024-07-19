@@ -7,12 +7,20 @@ import os
 from datetime import datetime
 import pyexcel
 import xlwt
+from Ruta import *
 
 class Excel_1:
+    carpetas = ruta()
+    dia = time.strftime("%d")
+    mes = time.strftime("%m")
+    ano = time.strftime("%Y")
+    PATH = "C:\\Users\\Study\\Documents\\Universidad\\Grade proyect\\Robot-CONSULTA-DE-PROCESOS-NACIONAL-UNIFICADA-main\\Robot-CONSULTA-DE-PROCESOS-NACIONAL-UNIFICADA-main\\Resultados"
 
     def __init__(self):
         #Se crea el nombre el nombre de archivo temporal y su extensión
-        self.fnametemp = "temp-[" + time.strftime("%d-%m-%Y-%H%M%S]") + ".xls"   
+        temporal = "temp-[" + time.strftime("%d-%m-%Y-%H%M%S]") + ".xls"
+        self.fnametemp = f'{self.PATH}\\{self.ano}\\{self.carpetas.dife_fecha()}\\{self.dia}\\{temporal}'
+        #self.fnametemp = "temp-[" + time.strftime("%d-%m-%Y-%H%M%S]") + ".xls"   
     
     
     #Funcion para crear el archivo de excel
@@ -63,7 +71,8 @@ class Excel_1:
     #Funcion en la que se guarda el archivo ya finalizado
     def terminar(self,excelFile):
         # cambiar el nombre del temp.xls y eliminarlo
-        fname = excelFile.split(".")[0] + "-[" + time.strftime("%d-%m-%Y-%H%M%S]") + ".xls"   
+        fnamefinal = excelFile.split(".")[0] + "-[" + time.strftime("%d-%m-%Y-%H%M%S]") + ".xls"
+        fname = f'{self.PATH}\\{self.ano}\\{self.carpetas.dife_fecha()}\\{self.dia}\\{fnamefinal}'
         shutil.move((self.fnametemp), fname)
         print("\nCreado el archivo: " + fname)
     
